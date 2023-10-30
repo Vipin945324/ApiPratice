@@ -24,16 +24,16 @@ public class AllProductModel {
     private String image;
     @SerializedName("rate")
     @Expose
-    private float rating;
+    private float rate;
 
-    public AllProductModel(Integer id, String title, float price, String description, String category, String image, float rating) {
+    public AllProductModel(Integer id, String title, float price, String description, String category, String image, float rate) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.description = description;
         this.category = category;
         this.image = image;
-        this.rating = rating;
+        this.rate = rate;
     }
 
     public AllProductModel() {
@@ -89,11 +89,11 @@ public class AllProductModel {
     }
 
     public float getRating() {
-        return rating;
+        return rate;
     }
 
     public void setRating(float rating) {
-        this.rating = rating;
+        this.rate = rating;
     }
 
 }
