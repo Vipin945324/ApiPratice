@@ -1,17 +1,17 @@
 package assign.technology.apipratice.FakeStoreApi;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
-import java.util.ArrayList;
-import java.util.List;
 
-import assign.technology.apipratice.MainActivity;
+import java.net.URL;
+import java.util.ArrayList;
+
 import assign.technology.apipratice.databinding.ProductItemlistBinding;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyProductViewHolder> {
@@ -39,11 +39,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyProduc
         holder.binding.productId.setText(String.valueOf(allProductModel.getId()));
         holder.binding.productTitle.setText(String.valueOf(allProductModel.getTitle()));
         holder.binding.productCategory.setText(allProductModel.getCategory());
-        holder.binding.productRating.setRating(allProductModel.getRating());
+        String s= String.valueOf(allProductModel.getRating().getRate());
+        holder.binding.productRating.setRating(Float.parseFloat(s));
+        Log.d("msm", "onBindViewHolder: "+allProductModel.getRating());
         holder.binding.productPrice.setText("Price "+allProductModel.getPrice());
         holder.binding.productDescription.setText(allProductModel.getDescription());
-        String productImageUrl = allProductModel.getImage();
-        Picasso.get().load(productImageUrl).into(holder.binding.productImages);
+        Picasso.get().load(allProductModel.getImage()).into(holder.binding.productImages);
 
         int id=allProductModel.getId();
 

@@ -46,6 +46,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 }else {
                     Toast.makeText(ProductDetailsActivity.this, "Api Error Body"+response.errorBody().toString(), Toast.LENGTH_SHORT).show();
                 }
+
             }
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
