@@ -20,4 +20,10 @@ public interface ApiServices {
     Call<JsonObject>getProductDetails(
             @Path("id")int id
     );
+
+    @GET("/products/categories")
+    Call<JsonArray>getProductCategory();
+
+    @GET("/products/category/{jewelery}")
+    Call<JsonArray>getProduct();
 }
