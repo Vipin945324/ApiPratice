@@ -26,4 +26,5 @@ public interface ApiServices {
 
     @GET("/products/category/{jewelery}")
     Call<JsonArray>getProduct();
+
 }

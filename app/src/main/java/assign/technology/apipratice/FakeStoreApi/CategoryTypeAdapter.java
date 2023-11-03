@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,9 +16,9 @@ import retrofit2.Call;
 
 public class CategoryTypeAdapter extends RecyclerView.Adapter<CategoryTypeAdapter.MyCategoryTypeViewHolder> {
     Context context;
-    ArrayList<String> stringArrayList;
+    ArrayList<Category> stringArrayList;
 
-    public CategoryTypeAdapter(Context context, ArrayList<String> stringArrayList) {
+    public CategoryTypeAdapter(Context context, ArrayList<Category> stringArrayList) {
         this.context = context;
         this.stringArrayList = stringArrayList;
     }
@@ -25,7 +26,9 @@ public class CategoryTypeAdapter extends RecyclerView.Adapter<CategoryTypeAdapte
     @NonNull
     @Override
     public CategoryTypeAdapter.MyCategoryTypeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyCategoryTypeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.category_type_design,parent,false));
+        return new MyCategoryTypeViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.category_type_design, parent, false));
+
+
     }
 
     @Override
@@ -38,10 +41,14 @@ public class CategoryTypeAdapter extends RecyclerView.Adapter<CategoryTypeAdapte
         return stringArrayList.size();
     }
 
-    public class MyCategoryTypeViewHolder extends RecyclerView.ViewHolder{
+    public class MyCategoryTypeViewHolder extends RecyclerView.ViewHolder {
+
+        TextView textView;
 
         public MyCategoryTypeViewHolder(@NonNull View itemView) {
+
             super(itemView);
+
         }
     }
 }

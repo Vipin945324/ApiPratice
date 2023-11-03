@@ -46,6 +46,7 @@ public class AllProductActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     JsonArray jsonArray=response.body();
 
+
                     binding.electronicsCategory.setText(jsonArray.get(0).getAsString());
                     binding.jeweleryCategory.setText(jsonArray.get(1).getAsString());
                     binding.mensClothingCategory.setText(jsonArray.get(2).getAsString());
