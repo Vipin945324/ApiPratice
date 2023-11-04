@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -67,7 +68,7 @@ public class CategoryTypeAdapter extends RecyclerView.Adapter<CategoryTypeAdapte
 
         TextView textView;
         ImageView CategoryImage;
-        MaterialCardView categoryCardView;
+        LinearLayout categoryCardView;
 
         public MyCategoryTypeViewHolder(@NonNull View itemView) {
 
