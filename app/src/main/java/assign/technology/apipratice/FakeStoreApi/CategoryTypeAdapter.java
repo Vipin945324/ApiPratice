@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.gson.JsonArray;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class CategoryTypeAdapter extends RecyclerView.Adapter<CategoryTypeAdapte
     public void onBindViewHolder(@NonNull CategoryTypeAdapter.MyCategoryTypeViewHolder holder, int position) {
         Category category=stringArrayList.get(position);
         holder.textView.setText(category.getCategory());
-        holder.CategoryImage.setImageResource(R.drawable.ic_launcher_background);
+        Picasso.get().load(category.getImage()).into(holder.CategoryImage);
 
         holder.categoryCardView.setOnClickListener(new View.OnClickListener() {
             @Override
