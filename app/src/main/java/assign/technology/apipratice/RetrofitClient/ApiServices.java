@@ -24,7 +24,9 @@ public interface ApiServices {
     @GET("/products/categories")
     Call<JsonArray>getProductCategory();
 
-    @GET("/products/category/{jewelery}")
-    Call<JsonArray>getProduct();
+    @GET("/products/category/{Category}")
+    Call<ArrayList<AllProductModel>>getProduct(
+            @Path("Category")String Category
+    );
 
 }

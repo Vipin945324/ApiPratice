@@ -29,9 +29,10 @@ import retrofit2.Response;
 
 public class AllProductActivity extends AppCompatActivity {
     ActivityAllProductBinding binding;
+    List<Category> categories = new ArrayList<>();
+
     ArrayList<AllProductModel> allProductModelArrayList=new ArrayList<>();
-    ArrayList<String>stringArrayList=new ArrayList<>();
-    Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +46,17 @@ public class AllProductActivity extends AppCompatActivity {
             public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
                 if(response.isSuccessful()){
                     JsonArray jsonArray=response.body();
+                    categories.add(new Category(jsonArray.get(0).getAsString(),R.drawable.ic_launcher_background));
+                    categories.add(new Category(jsonArray.get(1).getAsString(),R.drawable.ic_launcher_background));
+                    categories.add(new Category(jsonArray.get(2).getAsString(),R.drawable.ic_launcher_background));
+                    categories.add(new Category(jsonArray.get(3).getAsString(),R.drawable.ic_launcher_background));
+                    binding.productCategoryRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, true));
+                    CategoryTypeAdapter adapter=new CategoryTypeAdapter(getApplicationContext(), (ArrayList<Category>) categories);
+                    binding.productCategoryRecyclerView.setAdapter(adapter);
 
 
-                    binding.electronicsCategory.setText(jsonArray.get(0).getAsString());
-                    binding.jeweleryCategory.setText(jsonArray.get(1).getAsString());
-                    binding.mensClothingCategory.setText(jsonArray.get(2).getAsString());
-                    binding.womenClothingCategory.setText(jsonArray.get(3).getAsString());
+
+
 
                     Toast.makeText(AllProductActivity.this, "Success"+response.body().toString(), Toast.LENGTH_SHORT).show();
 

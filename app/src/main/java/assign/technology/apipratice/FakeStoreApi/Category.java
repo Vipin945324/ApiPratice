@@ -1,22 +1,27 @@
 package assign.technology.apipratice.FakeStoreApi;
 
 public class Category {
-    private String name;
+  private String category;
+  private int Image;
 
-    public Category() {
-
+    public Category(String category, int image) {
+        this.category = category;
+        Image = image;
     }
 
-    public Category(String name) {
-        this.name = name;
+    public String getCategory() {
+        return category;
     }
 
-    public String getName() {
-        return name;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getImage() {
+        return Image;
     }
 
+    public void setImage(int image) {
+        Image = image;
+    }
 }
